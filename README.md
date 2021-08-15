@@ -10,8 +10,8 @@ In this instance, a QR code is generated and used for the employees to clock in 
 Excel was the requested destination so a VBA script was created to make sure there was no code in any cells to avoid accidental mistakes or deletions of code. 
 
 Step.1 - Employee scans QR and fill out shift information
-Step.2 - Manager copies correct data from google forms and pastes onto Excel sheet
-Step.3 - Payroll director clicks the button and refreshes pivot. 
+Step.2 - Manager copies correct data from google forms and pastes onto Excel sheet, clicks button
+Step.3 - Payroll director refreshes pivot
 
 We pick up the process mid-Step.2
 
@@ -29,5 +29,12 @@ The manager opens Excel and ENABLES MACROS!*important*
 
 ![](images/OWV-VBA_pic1.png)
 
-The manager will then paste the google forms columns in column A of the Excel sheet under the orange colored cell. (The orange colored cell always indicates the end of the last submission/paste).
+The manager will then paste the google forms columns in column A of the Excel sheet under the orange colored cell. (The orange colored cell always indicates the end of the last submission/paste). (red arrow) Keep an eye on the grey totals bar the orange arrow is pointing to. This will go away and re-surface at the bottom.
 
+![](images/OWV-VBA_pic2.png)
+
+After this the manager can run the totals by clicking the 'Click to fill totals' button on the top (blue arrow). This will auto generate all totals for the shifts worked. 
+
+![](images/OWV-VBA_pic3.png)
+
+Notice the grey totals bar moved down. The next time you want to add data to this sheet, start again at the cell directly under the latest A cell colored orange.(red arrow)
