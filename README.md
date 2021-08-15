@@ -27,5 +27,7 @@ This is where we enter the VBA process.
 
 The manager opens Excel and ENABLES MACROS!*important*
 
-The maneger will then paste the google forms columns in column A of the Excel sheet under the orange colored cell. (The orange colored cell always indicates the end of the last submission/paste).
+![](images/OWV-VBA_pic1.png)
+
+The manager will then paste the google forms columns in column A of the Excel sheet under the orange colored cell. (The orange colored cell always indicates the end of the last submission/paste).
 
