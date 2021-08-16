@@ -48,4 +48,4 @@ After this the manager can run the totals by clicking the 'Click to fill totals'
     * The last column (column Y) will use a Vlookup reference to filter on which pay period the shift was worked in for quick payouts (blue arrow).
 
 
-The next time you want to add data to this sheet, start again at the cell directly under the latest A cell colored orange.(orange arrow)
+The next time you want to add data to this sheet, start again at the cell directly under the latest orange colored cell in column A(in this example it would be A32)(orange arrow)
