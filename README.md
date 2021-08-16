@@ -10,7 +10,7 @@ In this instance, a QR code is generated and used for the employees to clock in 
 Excel was the requested destination so a VBA script was created to make sure there was no code in any cells to avoid accidental mistakes or deletions of code. 
 
 Step.1 - Employee scans QR and fill out shift information
-Step.2 - Manager copies correct data from google forms and pastes onto Excel sheet, clicks button
+Step.2 - Manager audits then copies correct data from google forms and pastes onto Excel sheet, clicks button
 Step.3 - Payroll director refreshes pivot
 
 We pick up the process mid-Step.2

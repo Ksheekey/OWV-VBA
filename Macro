@@ -1,174 +1,1 @@
-Sub FillTable()
-
-Dim lastRow As Long
-lastRow = Cells(Rows.Count, 1).End(xlUp).Row
-
-Dim trainingHours As Double
-trainingHours = 0
-
-Dim billableHours As Double
-billableHours = 0
-
-'Clearing data-field
-range("G10:Y3000").Clear
-
-'Get hours/Payouts
-For i = 10 To lastRow
-
-    'Training hours worked
-    If Cells(i, 4) = "Training" Then
-     Cells(i, 4).Interior.ColorIndex = 44
-        If Cells(i, 6) > Cells(i, 5) Then
-            trainingHours = (Cells(i, 6) - Cells(i, 5)) * 24
-        ElseIf Cells(i, 6) < Cells(i, 5) Then
-            trainingHours = (1 - Cells(i, 5) + Cells(i, 6)) * 24
-        End If
-    Cells(i, 7) = trainingHours
-    End If
-    
-    'Hours worked
-    If Cells(i, 4) <> "Training" Then
-    ''
-        If Cells(i, 6) > Cells(i, 5) Then
-            billableHours = (Cells(i, 6) - Cells(i, 5)) * 24
-        ElseIf Cells(i, 6) < Cells(i, 5) Then
-            billableHours = (1 - Cells(i, 5) + Cells(i, 6)) * 24
-        End If
-        '' Account 1 (Cheers)
-        If Cells(i, 3) = Cells(8, 9) Then
-            Cells(i, 9) = billableHours
-            If Cells(i, 4) = "Manager" Then
-                Cells(i, 10) = Cells(i, 9) * Cells(10, 28)
-            ElseIf Cells(i, 4) = "Lead" Then
-                Cells(i, 10) = Cells(i, 9) * Cells(11, 28)
-            Else
-                Cells(i, 10) = Cells(i, 9) * Cells(12, 28)
-            End If
-            '' Account 2 (Bubbas)
-         ElseIf Cells(i, 3) = Cells(8, 11) Then
-            Cells(i, 11) = billableHours
-            If Cells(i, 4) = "Manager" Then
-                Cells(i, 12) = Cells(i, 11) * Cells(10, 28)
-            ElseIf Cells(i, 4) = "Lead" Then
-                Cells(i, 12) = Cells(i, 11) * Cells(11, 28)
-            Else
-                Cells(i, 12) = Cells(i, 11) * Cells(12, 28)
-            End If
-            '' Account 3 (JJ's)
-        ElseIf Cells(i, 3) = Cells(8, 13) Then
-            Cells(i, 13) = billableHours
-            If Cells(i, 4) = "Manager" Then
-                Cells(i, 14) = Cells(i, 13) * Cells(10, 28)
-            ElseIf Cells(i, 4) = "Lead" Then
-                Cells(i, 14) = Cells(i, 13) * Cells(11, 28)
-            Else
-                Cells(i, 14) = Cells(i, 13) * Cells(12, 28)
-            End If
-            '' Account 4 (Perk)
-        ElseIf Cells(i, 3) = Cells(8, 15) Then
-            Cells(i, 15) = billableHours
-            If Cells(i, 4) = "Manager" Then
-                Cells(i, 16) = Cells(i, 15) * Cells(10, 28)
-            ElseIf Cells(i, 4) = "Lead" Then
-                Cells(i, 16) = Cells(i, 15) * Cells(11, 28)
-            Else
-                Cells(i, 16) = Cells(i, 15) * Cells(12, 28)
-            End If
-            '' Account 5 (Pollos)
-        ElseIf Cells(i, 3) = Cells(8, 17) Then
-            Cells(i, 17) = billableHours
-            If Cells(i, 4) = "Manager" Then
-                Cells(i, 18) = Cells(i, 17) * Cells(10, 28)
-            ElseIf Cells(i, 4) = "Lead" Then
-                Cells(i, 18) = Cells(i, 17) * Cells(11, 28)
-            Else
-                Cells(i, 18) = Cells(i, 17) * Cells(12, 28)
-            End If
-            '' Account 6 (L Street)
-        ElseIf Cells(i, 3) = Cells(8, 19) Then
-            Cells(i, 19) = billableHours
-            If Cells(i, 4) = "Manager" Then
-                Cells(i, 20) = Cells(i, 19) * Cells(10, 28)
-            ElseIf Cells(i, 4) = "Lead" Then
-                Cells(i, 20) = Cells(i, 19) * Cells(11, 28)
-            Else
-                Cells(i, 20) = Cells(i, 19) * Cells(12, 28)
-            End If
-            '' Account 7 (Holstens)(different pay structure)
-        ElseIf Cells(i, 3) = "Holstens" Then
-            Cells(i, 21) = billableHours
-            If Cells(i, 4) = "Manager" Then
-                Cells(i, 22) = Cells(i, 21) * Cells(14, 28)
-            ElseIf Cells(i, 4) = "Lead" Then
-                Cells(i, 22) = Cells(i, 21) * Cells(15, 28)
-            Else
-                Cells(i, 22) = Cells(i, 21) * Cells(16, 28)
-            End If
-        End If
-        ''
-    End If
-    
-   'Training Payout
-    If Cells(i, 7) > 0 Then
-        Cells(i, 8) = Cells(i, 7) * Cells(13, 28)
-    End If
-    
-    'Hours Payout
-    If Application.Sum(Cells(i, 10), Cells(i, 12), Cells(i, 14), Cells(i, 16), Cells(i, 18), Cells(i, 20), Cells(i, 22)) > 0 Then
-        Cells(i, 23) = Application.Sum(Cells(i, 10), Cells(i, 12), Cells(i, 14), Cells(i, 16), Cells(i, 18), Cells(i, 20), Cells(i, 22))
-    End If
-    
-    'Total Payouts
-    Cells(i, 24) = Application.Sum(Cells(i, 8), Cells(i, 23))
-    
-    'use vlookup to find pay period
-    Cells(i, 25) = Application.VLookup(Cells(i, 1), Sheet1.range("AC11:AC40"), 1, 1)
-    
-Next i
-
-'Totals bar at bottom
-For x = 7 To 24
-
-    Cells(lastRow + 1, x) = Application.Sum(range(Cells(10, x), Cells(lastRow, x)))
-    Cells(lastRow + 1, 25) = "<-- TOTALS"
-    Cells(lastRow + 1, x).Interior.ColorIndex = 15
-    Cells(lastRow + 1, 25).Interior.ColorIndex = 15
-    
-Next x
-
-'Formatting
-    'Pay period dates
-range("AC11:AC3000").NumberFormat = "m/d/yy"
-range("AD11:AD3000").NumberFormat = "m/d/yy"
-    'Pay period column
-range("Y10:Y3000").NumberFormat = "m/d/yy"
-    'Shift date
-range("A10:A3000").NumberFormat = "m/d/yy"
-    'Hours columns (does not change value, just shows 2 decimals)(lose-a-penny)
-        'Hours columns
-range("G10:G3000").NumberFormat = "0.00"
-range("I10:I3000").NumberFormat = "0.00"
-range("K10:K3000").NumberFormat = "0.00"
-range("M10:M3000").NumberFormat = "0.00"
-range("O10:O3000").NumberFormat = "0.00"
-range("Q10:Q3000").NumberFormat = "0.00"
-range("S10:S3000").NumberFormat = "0.00"
-range("U10:U3000").NumberFormat = "0.00"
-        'Currency columns
-range("H10:H3000").NumberFormat = "$#,##0.00"
-range("J10:J3000").NumberFormat = "$#,##0.00"
-range("L10:L3000").NumberFormat = "$#,##0.00"
-range("N10:N3000").NumberFormat = "$#,##0.00"
-range("P10:P3000").NumberFormat = "$#,##0.00"
-range("R10:R3000").NumberFormat = "$#,##0.00"
-range("T10:T3000").NumberFormat = "$#,##0.00"
-range("V10:V3000").NumberFormat = "$#,##0.00"
-range("W10:W3000").NumberFormat = "$#,##0.00"
-range("X10:X3000").NumberFormat = "$#,##0.00"
-    'Aligning all text to the left for uniform look
-range("A10:AD3000").HorizontalAlignment = xlLeft
-
-'Coloring last cell
-Cells(lastRow, 1).Interior.ColorIndex = 46
-
-End Sub
+Sub FillTable()Dim lastRow As LonglastRow = Cells(Rows.Count, 1).End(xlUp).RowDim trainingHours As DoubletrainingHours = 0Dim billableHours As DoublebillableHours = 0'Clearing data-fieldrange("G10:Y3000").Clear'Formatting    'Shift daterange("A10:A3000").NumberFormat = "m/d/yy"    'Time-In/Outrange("E10:F3000").NumberFormat = "h:mm:ss AM/PM"'Get hours/PayoutsFor i = 10 To lastRow    'Training hours worked    If Cells(i, 4) = "Training" Then     Cells(i, 4).Interior.ColorIndex = 44        If Cells(i, 6) > Cells(i, 5) Then            trainingHours = (Cells(i, 6) - Cells(i, 5)) * 24        ElseIf Cells(i, 6) < Cells(i, 5) Then            trainingHours = (1 - Cells(i, 5) + Cells(i, 6)) * 24        End If    Cells(i, 7) = trainingHours    End If        'Hours worked    If Cells(i, 4) <> "Training" Then    ''        If Cells(i, 6) > Cells(i, 5) Then            billableHours = (Cells(i, 6) - Cells(i, 5)) * 24        ElseIf Cells(i, 6) < Cells(i, 5) Then            billableHours = (1 - Cells(i, 5) + Cells(i, 6)) * 24        End If        '' Account 1 (Cheers)        If Cells(i, 3) = Cells(8, 9) Then            Cells(i, 9) = billableHours            If Cells(i, 4) = "Manager" Then                Cells(i, 10) = Cells(i, 9) * Cells(10, 28)            ElseIf Cells(i, 4) = "Lead" Then                Cells(i, 10) = Cells(i, 9) * Cells(11, 28)            Else                Cells(i, 10) = Cells(i, 9) * Cells(12, 28)            End If            '' Account 2 (Bubbas)         ElseIf Cells(i, 3) = Cells(8, 11) Then            Cells(i, 11) = billableHours            If Cells(i, 4) = "Manager" Then                Cells(i, 12) = Cells(i, 11) * Cells(10, 28)            ElseIf Cells(i, 4) = "Lead" Then                Cells(i, 12) = Cells(i, 11) * Cells(11, 28)            Else                Cells(i, 12) = Cells(i, 11) * Cells(12, 28)            End If            '' Account 3 (JJ's)        ElseIf Cells(i, 3) = Cells(8, 13) Then            Cells(i, 13) = billableHours            If Cells(i, 4) = "Manager" Then                Cells(i, 14) = Cells(i, 13) * Cells(10, 28)            ElseIf Cells(i, 4) = "Lead" Then                Cells(i, 14) = Cells(i, 13) * Cells(11, 28)            Else                Cells(i, 14) = Cells(i, 13) * Cells(12, 28)            End If            '' Account 4 (Perk)        ElseIf Cells(i, 3) = Cells(8, 15) Then            Cells(i, 15) = billableHours            If Cells(i, 4) = "Manager" Then                Cells(i, 16) = Cells(i, 15) * Cells(10, 28)            ElseIf Cells(i, 4) = "Lead" Then                Cells(i, 16) = Cells(i, 15) * Cells(11, 28)            Else                Cells(i, 16) = Cells(i, 15) * Cells(12, 28)            End If            '' Account 5 (Pollos)        ElseIf Cells(i, 3) = Cells(8, 17) Then            Cells(i, 17) = billableHours            If Cells(i, 4) = "Manager" Then                Cells(i, 18) = Cells(i, 17) * Cells(10, 28)            ElseIf Cells(i, 4) = "Lead" Then                Cells(i, 18) = Cells(i, 17) * Cells(11, 28)            Else                Cells(i, 18) = Cells(i, 17) * Cells(12, 28)            End If            '' Account 6 (L Street)        ElseIf Cells(i, 3) = Cells(8, 19) Then            Cells(i, 19) = billableHours            If Cells(i, 4) = "Manager" Then                Cells(i, 20) = Cells(i, 19) * Cells(10, 28)            ElseIf Cells(i, 4) = "Lead" Then                Cells(i, 20) = Cells(i, 19) * Cells(11, 28)            Else                Cells(i, 20) = Cells(i, 19) * Cells(12, 28)            End If            '' Account 7 (Holstens)(different pay structure)        ElseIf Cells(i, 3) = "Holstens" Then            Cells(i, 21) = billableHours            If Cells(i, 4) = "Manager" Then                Cells(i, 22) = Cells(i, 21) * Cells(14, 28)            ElseIf Cells(i, 4) = "Lead" Then                Cells(i, 22) = Cells(i, 21) * Cells(15, 28)            Else                Cells(i, 22) = Cells(i, 21) * Cells(16, 28)            End If        End If        ''    End If        'Coloring hours 8 or more for Eddie's red    If Cells(i, 9) > 8 Then        Cells(i, 9).Font.ColorIndex = 3    End If       'Training Payout    If Cells(i, 7) > 0 Then        Cells(i, 8) = Cells(i, 7) * Cells(13, 28)    End If        'Hours Payout    If Application.Sum(Cells(i, 10), Cells(i, 12), Cells(i, 14), Cells(i, 16), Cells(i, 18), Cells(i, 20), Cells(i, 22)) > 0 Then        Cells(i, 23) = Application.Sum(Cells(i, 10), Cells(i, 12), Cells(i, 14), Cells(i, 16), Cells(i, 18), Cells(i, 20), Cells(i, 22))    End If        'Total Payouts    Cells(i, 24) = Application.Sum(Cells(i, 8), Cells(i, 23))        'use vlookup to find pay period    Cells(i, 25) = Application.VLookup(Cells(i, 1), Sheet1.range("AC11:AC40"), 1, 1)    Next i'Totals bar at bottomFor x = 7 To 24    Cells(7, x) = Application.Sum(range(Cells(10, x), Cells(lastRow, x)))    Cells(7, 6) = "TOTALS -->"    Next x'Formatting    'Pay period datesrange("AC11:AC3000").NumberFormat = "m/d/yy"range("AD11:AD3000").NumberFormat = "m/d/yy"    'Pay period columnrange("Y10:Y3000").NumberFormat = "m/d/yy"    'Shift daterange("A10:A3000").NumberFormat = "m/d/yy"    'Hours columns (does not change value, just shows 2 decimals)(lose-a-penny)        'Hours columnsrange("G10:G3000").NumberFormat = "0.00"range("I10:I3000").NumberFormat = "0.00"range("K10:K3000").NumberFormat = "0.00"range("M10:M3000").NumberFormat = "0.00"range("O10:O3000").NumberFormat = "0.00"range("Q10:Q3000").NumberFormat = "0.00"range("S10:S3000").NumberFormat = "0.00"range("U10:U3000").NumberFormat = "0.00"        'Currency columnsrange("H10:H3000").NumberFormat = "$#,##0.00"range("J10:J3000").NumberFormat = "$#,##0.00"range("L10:L3000").NumberFormat = "$#,##0.00"range("N10:N3000").NumberFormat = "$#,##0.00"range("P10:P3000").NumberFormat = "$#,##0.00"range("R10:R3000").NumberFormat = "$#,##0.00"range("T10:T3000").NumberFormat = "$#,##0.00"range("V10:V3000").NumberFormat = "$#,##0.00"range("W10:W3000").NumberFormat = "$#,##0.00"range("X10:X3000").NumberFormat = "$#,##0.00"    'Aligning all text to the left for uniform lookrange("A10:AD3000").HorizontalAlignment = xlLeft'Coloring last cellCells(lastRow, 1).Interior.ColorIndex = 46End Sub
