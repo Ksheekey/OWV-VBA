@@ -9,7 +9,7 @@ In this instance, a QR code is generated and used for the employees to clock in 
 
 Excel was the requested destination so a VBA script was created to make sure there was no code in any cells to avoid accidental mistakes or deletions of code. 
 
-1. - Employee scans QR and fill out shift information.
+1. Employee scans QR and fill out shift information.
 1. - Manager audits then copies correct data from google forms and pastes onto Excel sheet, clicks button.
 1. - Payroll director refreshes pivot.
 
