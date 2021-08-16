@@ -40,12 +40,12 @@ After this the manager can run the totals by clicking the 'Click to fill totals'
 ![](images/OWV-VBA_pic3.png)
 (What the sheet looks like after button is clicked)
 
-There are a couple cool features that happen once the button is clicked.
-    The totals filter into the correct column depending on what location they worked.
-    An orange cell color gets inserted at the last A cell to indicate end of submission and can be used as a reference for the next paste (orange arrow).
-    The training shifts (column D) get color-matched to the training totals for easy navigation (yellow arrow).
-    Stipulations can be put in, for example, Cheers should never have shifts of over 8 hours, so any instance of the total hours going above 8 will turn red in text (red arrow).
-    And the last column (column Y) will use a Vlookup reference to filter on which pay period the shift was worked in for quick payouts (blue arrow).
+* There are a couple cool features that happen once the button is clicked.
+    * The totals filter into the correct column depending on what location they worked.
+    * An orange cell color gets inserted at the last A cell to indicate end of submission and can be used as a reference for the next paste (orange arrow).
+    * The training shifts (column D) get color-matched to the training totals for easy navigation (yellow arrow).
+    * Stipulations can be put in, for example, Cheers should never have shifts of over 8 hours, so any instance of the total hours going above 8 will turn red in text (red arrow).
+    * The last column (column Y) will use a Vlookup reference to filter on which pay period the shift was worked in for quick payouts (blue arrow).
 
 
 The next time you want to add data to this sheet, start again at the cell directly under the latest A cell colored orange.(orange arrow)
