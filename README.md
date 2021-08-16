@@ -9,33 +9,33 @@ In this instance, a QR code is generated and used for the employees to clock in 
 
 Excel was the requested destination so a VBA script was created to make sure there was no code in any cells to avoid accidental mistakes or deletions of code. 
 
-Step.1 - Employee scans QR and fill out shift information
-Step.2 - Manager audits then copies correct data from google forms and pastes onto Excel sheet, clicks button
-Step.3 - Payroll director refreshes pivot
+*Step.1 - Employee scans QR and fill out shift information.
+*Step.2 - Manager audits then copies correct data from google forms and pastes onto Excel sheet, clicks button.
+*Step.3 - Payroll director refreshes pivot.
 
 We pick up the process mid-Step.2
 
 The manager copies the data from google forms, columns needed are; 
-    Date - The date of the shift worked.
-    Employee - The employee who worked it.
-    Account (if applicable) - Which account that shift was worked at.
-    Role - The role of the employee (Attendant, Lead, Manager).
-    Time-In - Arrival Time.
-    Time-Out - Departure Time.
+    *Date - The date of the shift worked.
+    *Employee - The employee who worked it.
+    *Account (if applicable) - Which account that shift was worked at.
+    *Role - The role of the employee (Attendant, Lead, Manager).
+    *Time-In - Arrival Time.
+    *Time-Out - Departure Time.
 
 This is where we enter the VBA process.
 
-The manager opens Excel and ENABLES MACROS!*important*
+The manager opens Excel and ENABLES MACROS! *important*
 
 ![](images/OWV-VBA_pic1.png)
 (What the sheet looks like when loaded with macros enabled)
 
-The manager will then paste the google forms information in column A of the Excel sheet under the latest orange colored cell. (The orange colored cell always indicates the end of the last submission/paste). In this example the information would be pasted in cell A10 (prange arrow).
+The manager will then paste the google forms information in column A of the Excel sheet under the latest orange colored cell. (The orange colored cell always indicates the end of the last submission/paste). In this example the information would be pasted in cell A10 (orange arrow).
 
 ![](images/OWV-VBA_pic2.png)
 (What the sheet looks like with info pasted, prior to clicking the button)
 
-After this the manager can run the totals by clicking the 'Click to fill totals' button on the top (blue arrow). This will auto generate all totals for the shifts worked. 
+After this the manager can run the totals by clicking the 'Click to fill totals' button on the top (black arrow above). This will auto generate all totals for the shifts worked. 
 
 ![](images/OWV-VBA_pic3.png)
 (What the sheet looks like after button is clicked)
