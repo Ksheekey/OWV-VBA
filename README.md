@@ -17,11 +17,11 @@ We pick up the process mid-Step.2
 
 * The manager copies the data from google forms, columns needed are; 
     * Date - The date of the shift worked.
-    1. Employee - The employee who worked it.
-    1. Account (if applicable) - Which account that shift was worked at.
-    1. Role - The role of the employee (Attendant, Lead, Manager).
-    1. Time-In - Arrival Time.
-    1. Time-Out - Departure Time.
+    * Employee - The employee who worked it.
+    * Account (if applicable) - Which account that shift was worked at.
+    * Role - The role of the employee (Attendant, Lead, Manager).
+    * Time-In - Arrival Time.
+    * Time-Out - Departure Time.
 
 This is where we enter the VBA process.
 
