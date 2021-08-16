@@ -15,8 +15,8 @@ Excel was the requested destination so a VBA script was created to make sure the
 
 We pick up the process mid-Step.2
 
-The manager copies the data from google forms, columns needed are; 
-    1. Date - The date of the shift worked.
+* The manager copies the data from google forms, columns needed are; 
+    * Date - The date of the shift worked.
     1. Employee - The employee who worked it.
     1. Account (if applicable) - Which account that shift was worked at.
     1. Role - The role of the employee (Attendant, Lead, Manager).
